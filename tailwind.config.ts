@@ -1,0 +1,151 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        formimage:
+          "url('https://s3-alpha-sig.figma.com/img/f9a3/52ae/9cca01dcc236aeaaae9f4f148230e0c9?Expires=1719187200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jWrPCHBCQerinpB6pxf6KK9pm0BVV5EFhudMKIqrTvUjAq3OoYALc4~KfRoExiBB~1uONcToivmQ63ODUor7ehFWhAjEOLFzTjYWqCJrZI8tgOCWu6zEPJVa5ugr7NQpFcLlnhTo6BjFLTRbz1zO~tR~Vj2dEn~3b6R915RramOFcC1t8rxXemMNXpJFxS2VoFtFQqRaCwYVzKIUAwCPaE~Wf3R5EmFQ~KBvMGNueyLKBbCQDigzkQ9oXxLv-FYYQnbapAeC59fq9EB0ZAriAtfgfqNC77ltLYoPTmtHyWtc~2u4e41pkmerEsicuWzJki-wdyGdBxHcxyuGcmxM-w__')",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      colors: {
+        background: {
+          "50": "#f6f6f9",
+          "100": "#ededf1",
+          "200": "#d6d6e1",
+          "300": "#b3b5c6",
+          "400": "#898ca7",
+          "500": "#6a6d8d",
+          "600": "#555674",
+          "700": "#46485e",
+          "800": "#3c3d50",
+          "900": "#353545",
+          "950": "#15151b",
+        },
+
+        primary: {
+          "50": "#faf5ff",
+          "100": "#f2e9fe",
+          "200": "#e8d6fe",
+          "300": "#d6b6fc",
+          "400": "#bc87f9",
+          "500": "#a35af2",
+          "600": "#8d38e5",
+          "700": "#7927c9",
+          "800": "#6424a0",
+          "900": "#551f84",
+          "950": "#380a61",
+        },
+
+        foreground: {
+          "50": "#f3f2fb",
+          "100": "#eae8f7",
+          "200": "#dad5f0",
+          "300": "#c3bbe6",
+          "400": "#af9fda",
+          "500": "#9f87cd",
+          "600": "#8f6fbc",
+          "700": "#7d5da5",
+          "800": "#664d86",
+          "900": "#54436c",
+          "950": "#2c2338",
+        },
+      },
+      borderColor: {
+        background: {
+          "50": "#f6f6f9",
+          "100": "#ededf1",
+          "200": "#d6d6e1",
+          "300": "#b3b5c6",
+          "400": "#898ca7",
+          "500": "#6a6d8d",
+          "600": "#555674",
+          "700": "#46485e",
+          "800": "#3c3d50",
+          "900": "#353545",
+          "950": "#15151b",
+        },
+
+        primary: {
+          "50": "#faf5ff",
+          "100": "#f2e9fe",
+          "200": "#e8d6fe",
+          "300": "#d6b6fc",
+          "400": "#bc87f9",
+          "500": "#a35af2",
+          "600": "#8d38e5",
+          "700": "#7927c9",
+          "800": "#6424a0",
+          "900": "#551f84",
+          "950": "#380a61",
+        },
+
+        foreground: {
+          "50": "#f3f2fb",
+          "100": "#eae8f7",
+          "200": "#dad5f0",
+          "300": "#c3bbe6",
+          "400": "#af9fda",
+          "500": "#9f87cd",
+          "600": "#8f6fbc",
+          "700": "#7d5da5",
+          "800": "#664d86",
+          "900": "#54436c",
+          "950": "#2c2338",
+        },
+      },
+      backgroundColor: {
+        background: {
+          "50": "#f6f6f9",
+          "100": "#ededf1",
+          "200": "#d6d6e1",
+          "300": "#b3b5c6",
+          "400": "#898ca7",
+          "500": "#6a6d8d",
+          "600": "#555674",
+          "700": "#46485e",
+          "800": "#3c3d50",
+          "900": "#353545",
+          "950": "#15151b",
+        },
+
+        primary: {
+          "50": "#faf5ff",
+          "100": "#f2e9fe",
+          "200": "#e8d6fe",
+          "300": "#d6b6fc",
+          "400": "#bc87f9",
+          "500": "#a35af2",
+          "600": "#8d38e5",
+          "700": "#7927c9",
+          "800": "#6424a0",
+          "900": "#551f84",
+          "950": "#380a61",
+        },
+
+        foreground: {
+          "50": "#f3f2fb",
+          "100": "#eae8f7",
+          "200": "#dad5f0",
+          "300": "#c3bbe6",
+          "400": "#af9fda",
+          "500": "#9f87cd",
+          "600": "#8f6fbc",
+          "700": "#7d5da5",
+          "800": "#664d86",
+          "900": "#54436c",
+          "950": "#2c2338",
+        },
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/forms")],
+};
+export default config;
