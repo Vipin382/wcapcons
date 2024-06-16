@@ -3,7 +3,7 @@
 import React from "react";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import Card from "./components/Cards";
-import { cardsData } from "@/lib/data";
+import { cardsData, FeaturedCardData } from "@/lib/data";
 import ReviewCard from "./components/ReviewCard";
 import { EmblaOptionsType } from "embla-carousel";
 import Carousel from "./components/Carousel/Carousel";
@@ -11,6 +11,10 @@ import Carousel from "./components/Carousel/Carousel";
 import { DeviceFrameset } from "react-device-frameset";
 import "react-device-frameset/styles/marvel-devices.min.css";
 import "react-device-frameset/styles/device-selector.min.css";
+import FeaturesCard from "./components/FeaturesCard";
+import TabFeatures from "./components/TabFeatures";
+import ReviewSection from "./components/ReviewSection";
+import ContactFOrm from "./components/ContactFOrm";
 
 const OPTIONS: EmblaOptionsType = { loop: true, axis: "y" };
 const SLIDES = [
@@ -258,16 +262,16 @@ const Main = () => {
     <main className="min-h-screen">
       <div className="w-full min-h-[90vh] max-h-[90vh] relative overflow-hidden lg:p-10">
         <img
-          src={"/game.jpg"}
+          src={"/background.png"}
           alt="CapCons"
           className=" absolute -z-10 lg:w-[95%] h-[80vh] lg:rounded-xl"
         />
         <div className=" w-full max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
           <div className="mx-auto mt-24 sm:mt-32 lg:mt-16  max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
-            <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
               {`Interest Driven People's Network`}
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-800">
+            <p className="mt-6 text-lg leading-8 text-white">
               Create or explore circles - meet new people, learn new things,
               find support, get out of their comfort zones, and pursue their
               passions, together.
@@ -279,12 +283,6 @@ const Main = () => {
               >
                 Get started
               </a>
-              <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-gray-900"
-              >
-                Learn more <span aria-hidden="true">→</span>
-              </a>
             </div>
           </div>
         </div>
@@ -295,6 +293,19 @@ const Main = () => {
         <Carousel slides={SLIDES} options={OPTIONS} />
       </div>
 
+      {/** Features*/}
+      <div className="container mb-10 mx-auto">
+        <h3 className="text-3xl text-center text-white">Features</h3>
+        <div className="w-full flex flex-col justify-center items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 max-w-[1100px] gap-4 p-3">
+            {FeaturedCardData.map((item, index) => {
+              return <FeaturesCard key={index} {...item} />;
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/**Mobile Phone Frame set */}
       <div className="min-h-[70vh] bg-foreground-950 mb-10 py-24 flex justify-center items-center">
         <div className="container  flex flex-col justify-center items-center">
           <DeviceFrameset device="iPhone X" color="black"></DeviceFrameset>
@@ -302,149 +313,11 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="px-8">
-        <div className="px-2">
-          <div className="text-2xl font-bold text-background-100">
-            Tab into the features which let users come back
-          </div>
-          <div className="text-background-100">
-            Whenever Passion rolls out new features, your app is updated
-            automatically - at no extra cost.
-          </div>
-        </div>
-        <TabGroup className={"mt-8"}>
-          <TabList className="flex gap-x-5 w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base  sm:text-sm">
-            <Tab className="data-[selected]:border-primary-800 hover:text-primary-800 transition-all text-xl outline-none border-b border-transparent font-bold hover:border-b hover:border-primary-800 text-background-100 font-lg data-[selected]:border-b data-[selected]:text-primary-800 ">
-              Create
-            </Tab>
-            <Tab className="data-[selected]:border-primary-800 hover:text-primary-800 border-b text-xl outline-none border-transparent transition-all font-bold hover:border-b hover:border-primary-800 text-background-100 font-lg data-[selected]:border-b data-[selected]:text-primary-800 ">
-              Engage
-            </Tab>
-            <Tab className="data-[selected]:border-primary-800 hover:text-primary-800 transition-all text-xl outline-none font-bold hover:border-b hover:border-primary-800 text-background-100 font-lg data-[selected]:border-b data-[selected]:text-primary-800 ">
-              Monetize
-            </Tab>
-          </TabList>
-          <TabPanels className={"mt-4 px-4"}>
-            <TabPanel>
-              <div className="grid grid-cols-3 gap-x-8">
-                {cardsData.map((item, index) => {
-                  return (
-                    <Card
-                      key={index}
-                      imageUrl={item.imageUrl}
-                      description={item.description}
-                      title={item.title}
-                      href={item.href}
-                    />
-                  );
-                })}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-3 gap-x-8">
-                {cardsData.map((item, index) => {
-                  return (
-                    <Card
-                      key={index}
-                      imageUrl={item.imageUrl}
-                      description={item.description}
-                      title={item.title}
-                      href={item.href}
-                    />
-                  );
-                })}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-3 gap-x-8">
-                {cardsData.map((item, index) => {
-                  return (
-                    <Card
-                      key={index}
-                      imageUrl={item.imageUrl}
-                      description={item.description}
-                      title={item.title}
-                      href={item.href}
-                    />
-                  );
-                })}
-              </div>
-            </TabPanel>
-          </TabPanels>
-        </TabGroup>
-      </div>
+      {/**Tab Features */}
+      <TabFeatures />
+
       {/**Reviews */}
-      <div className="px-8 p-4 my-8">
-        <div className="text-foreground-100 text-2xl font-bold">Reviews</div>
-        <div className="grid mt-6 grid-cols-3 md:grid-cols-4 gap-6 grid-row-3">
-          <ReviewCard
-            author={"Username"}
-            content={
-              " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima quae temporibus nesciunt consectetur commodi dolore. Numquam vero ducimus ullam rem tempore expedita sapiente recusandae, harum aspernatur laboriosam voluptate vitae nesciunt esse laborum suscipit! Optio!"
-            }
-            imageUrl={
-              "https://images.pexels.com/photos/25665222/pexels-photo-25665222/free-photo-of-man-leaning-against-the-wall.jpeg"
-            }
-          />
-          <ReviewCard
-            author={"Username"}
-            className="row-span-2 col-span-2"
-            content={
-              " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima quae temporibus nesciunt consectetur commodi dolore. Numquam vero ducimus ullam rem tempore expedita sapiente recusandae, harum aspernatur laboriosam voluptate vitae nesciunt esse laborum suscipit! Optio!"
-            }
-            imageUrl={
-              "https://images.pexels.com/photos/25665222/pexels-photo-25665222/free-photo-of-man-leaning-against-the-wall.jpeg"
-            }
-          />
-          <ReviewCard
-            author={"Username"}
-            content={
-              " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima quae temporibus nesciunt consectetur commodi dolore. Numquam vero ducimus ullam rem tempore expedita sapiente recusandae, harum aspernatur laboriosam voluptate vitae nesciunt esse laborum suscipit! Optio!"
-            }
-            imageUrl={
-              "https://images.pexels.com/photos/25665222/pexels-photo-25665222/free-photo-of-man-leaning-against-the-wall.jpeg"
-            }
-          />
-          <ReviewCard
-            author={"Username"}
-            className="row-span-2"
-            content={
-              " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima quae temporibus nesciunt consectetur commodi dolore. Numquam vero ducimus ullam rem tempore expedita sapiente recusandae, harum aspernatur laboriosam voluptate vitae nesciunt esse laborum suscipit! Optio!"
-            }
-            imageUrl={
-              "https://images.pexels.com/photos/25665222/pexels-photo-25665222/free-photo-of-man-leaning-against-the-wall.jpeg"
-            }
-          />
-          <ReviewCard
-            author={"Username"}
-            className="row-span-2"
-            content={
-              " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima quae temporibus nesciunt consectetur commodi dolore. Numquam vero ducimus ullam rem tempore expedita sapiente recusandae, harum aspernatur laboriosam voluptate vitae nesciunt esse laborum suscipit! Optio!"
-            }
-            imageUrl={
-              "https://images.pexels.com/photos/25665222/pexels-photo-25665222/free-photo-of-man-leaning-against-the-wall.jpeg"
-            }
-          />
-          <ReviewCard
-            author={"Username"}
-            content={
-              " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima quae temporibus nesciunt consectetur commodi dolore. Numquam vero ducimus ullam rem tempore expedita sapiente recusandae, harum aspernatur laboriosam voluptate vitae nesciunt esse laborum suscipit! Optio!"
-            }
-            imageUrl={
-              "https://images.pexels.com/photos/25665222/pexels-photo-25665222/free-photo-of-man-leaning-against-the-wall.jpeg"
-            }
-          />
-          <ReviewCard
-            author={"Username"}
-            content={
-              " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima quae temporibus nesciunt consectetur commodi dolore. Numquam vero ducimus ullam rem tempore expedita sapiente recusandae, harum aspernatur laboriosam voluptate vitae nesciunt esse laborum suscipit! Optio!"
-            }
-            imageUrl={
-              "https://images.pexels.com/photos/25665222/pexels-photo-25665222/free-photo-of-man-leaning-against-the-wall.jpeg"
-            }
-          />
-        </div>
-      </div>
+      <ReviewSection />
 
       {/** BLogs and events */}
 
@@ -472,89 +345,9 @@ const Main = () => {
         </div>
       </div>
 
-      {/**Form */}
+      {/**Contact Form */}
 
-      <div className="my-10 bg-formimage grid transition-all xl:grid-cols-3 bg-cover bg-no-repeat  h-[860px]">
-        <div className="lg:col-span-2 hidden xl:grid transition-all grid-cols-3 ">
-          <div className="border-4 border-black border-t-transparent border-l-transparent"></div>
-          <div className="border-4 border-black border-t-transparent"></div>
-          <div className="border-4 border-black border-t-transparent border-r-transparent"></div>
-          <div className="border-4 border-black border-l-transparent"></div>
-          <div className="border-4 border-black"></div>
-          <div className="border-4 border-black border-r-transparent"></div>
-          <div className="border-4 border-black border-l-transparent"></div>
-          <div className="border-4 border-black"></div>
-          <div className="border-4 border-black border-r-transparent"></div>
-          <div className="border-4 border-black border-l-transparent border-b-transparent"></div>
-          <div className="border-4 border-black border-b-transparent"></div>
-          <div className="border-4 border-black border-r-transparent border-b-transparent"></div>
-        </div>
-
-        <div className="bg-black/60 flex flex-col justify-center items-center px-8 md:px-32">
-          <div>
-            {" "}
-            <div className="sm:mx-auto space-y-4 sm:w-full sm:max-w-sm">
-              <h2 className="mt-10 text-center text-4xl whitespace-nowrap font-bold leading-9 tracking-tight text-white">
-                Join with an invitation!
-              </h2>
-              <div className="text-sm font-medium text-white text-justify">
-                If you don’t yet have an invite, provide us your another social
-                media, then get started and we will send you an invitation mail.
-              </div>
-            </div>
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form className="space-y-6" action="#" method="POST">
-                <div>
-                  <div className="mt-2">
-                    <input
-                      name="name"
-                      type="text"
-                      placeholder="Name Social media Platform"
-                      required
-                      className="block w-full border-0 py-2 text-gray-900 shadow-sm bg-transparent ring-1 ring-inset ring-gray-300/80 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="mt-2">
-                    <input
-                      name="username"
-                      type="text"
-                      placeholder="Your username"
-                      required
-                      className="block w-full  border-0 py-2 text-gray-900 shadow-sm bg-transparent ring-1 ring-inset ring-gray-300/80 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="mt-2">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      placeholder="Email Id"
-                      required
-                      className="block w-full border-0 py-2 text-gray-900 shadow-sm bg-transparent ring-1 ring-inset ring-gray-300/80 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <button
-                    type="submit"
-                    className="flex w-[200px] mx-auto  justify-center rounded-md bg-primary-800 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-                  >
-                    Get Started
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ContactFOrm />
     </main>
   );
 };

@@ -18,7 +18,7 @@ const ReviewCard = (props: Props) => {
     >
       <div className={cn("flex-1 py-4")}>
         <div
-          className="prose prose-sm  max-w-none text-gray-500"
+          className="prose prose-sm  max-w-none text-[#F4F4F4]"
           dangerouslySetInnerHTML={{ __html: props.content }}
         />
       </div>
